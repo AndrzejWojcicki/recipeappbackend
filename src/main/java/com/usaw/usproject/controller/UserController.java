@@ -24,7 +24,7 @@ public class UserController {
     @Autowired
     PasswordEncoder encoder;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@Valid @PathVariable("id") long id, @RequestBody User user) {
 

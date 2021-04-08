@@ -20,7 +20,7 @@ public class StepsController {
     RecipeStepsRepository stepsRepository;
 
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
     @PostMapping("steps")
     public ResponseEntity<RecipeSteps> createStep(@Valid @RequestBody RecipeSteps steps) {
         try {
@@ -34,7 +34,7 @@ public class StepsController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
     @PutMapping("/steps/{id}")
     public ResponseEntity<RecipeSteps> updateStep(@Valid @PathVariable("id") long id, @RequestBody RecipeSteps step) {
 
@@ -50,7 +50,7 @@ public class StepsController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
     @DeleteMapping("/steps/{id}")
     public ResponseEntity<HttpStatus> deleteStep(@PathVariable("id") long id) {
         try {
