@@ -44,7 +44,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -66,7 +66,7 @@ public class AuthController {
     }
 
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
 

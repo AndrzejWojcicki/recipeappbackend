@@ -18,7 +18,7 @@ public class DietController {
     @Autowired
     IngredientRepository ingredientRepository;
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @GetMapping("/dietingredient/{id}/{id2}")
     public DietData getIngredientsData(@Valid @PathVariable("id") Long idAmount, @PathVariable("id2")Long ingredientId) {
         try {
@@ -32,7 +32,7 @@ public class DietController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("diet")
     public ResponseEntity<UserDiet> createDiet(@Valid @RequestBody UserDiet diet) {
 
@@ -46,7 +46,7 @@ public class DietController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PutMapping("/diet/{id}")
     public ResponseEntity<UserDiet> updateDiet(@Valid @PathVariable("id") long id, @RequestBody UserDiet diet) {
 
@@ -63,7 +63,7 @@ public class DietController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @DeleteMapping("/diet/{id}")
     public ResponseEntity<HttpStatus> deleteIngredient(@PathVariable("id") long id) {
         try {

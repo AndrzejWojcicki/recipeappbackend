@@ -19,7 +19,7 @@ public class ShoppingListController {
     @Autowired
     ShoppingListRepository shoppingListRepository;
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("shoppingList")
     public ResponseEntity<ShoppingList> createShoppinglist(@Valid @RequestBody ShoppingList shoppingList) {
 
@@ -33,7 +33,7 @@ public class ShoppingListController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PutMapping("/shoppingList/{id}")
     public ResponseEntity<ShoppingList> updateShoppingList(@Valid  @PathVariable("id") long id, @RequestBody ShoppingList shoppingList) {
 
@@ -51,7 +51,7 @@ public class ShoppingListController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @DeleteMapping("/shoppingList/{id}")
     public ResponseEntity<HttpStatus> deleteShoppingList(@PathVariable("id") long id) {
         try {

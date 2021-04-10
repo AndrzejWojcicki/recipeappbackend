@@ -16,7 +16,7 @@ public class CommentController {
     @Autowired
     CommentRepository commentRepository;
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("comments")
     public ResponseEntity<Comment> createComment(@Valid @RequestBody Comment comment) {
         System.out.println(comment);
@@ -32,7 +32,7 @@ public class CommentController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @DeleteMapping("/comments/{id}")
     public ResponseEntity<HttpStatus> deleteComment(@PathVariable("id") long id) {
         try {

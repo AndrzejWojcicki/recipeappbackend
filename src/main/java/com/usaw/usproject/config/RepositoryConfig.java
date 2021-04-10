@@ -23,6 +23,6 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
             .map(Type::getJavaType)
             .toArray(Class[]::new));
     config.getCorsRegistry().addMapping("/**")
-            .allowedOrigins("https://recipe-app-us.herokuapp.com");
+            .allowedOrigins("https://recipe-app-us.herokuapp.com","http://localhost:4200");
     }
 }

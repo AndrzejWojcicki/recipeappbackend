@@ -18,7 +18,7 @@ public class RatingController {
     @Autowired
     RatingRepository ratingRepository;
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("ratings")
     public ResponseEntity<Rating> createRating(@Valid @RequestBody Rating rate) {
 
@@ -32,7 +32,7 @@ public class RatingController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PutMapping("/ratings/{id}")
     public ResponseEntity<Rating> updateRating(@Valid @PathVariable("id") long id, @RequestBody Rating rating) {
 
@@ -48,7 +48,7 @@ public class RatingController {
         }
     }
 
-    @CrossOrigin(origins = "https://recipe-app-us.herokuapp.com")
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @DeleteMapping("/ratings/{id}")
     public ResponseEntity<HttpStatus> deleteRating(@PathVariable("id") long id) {
         try {
