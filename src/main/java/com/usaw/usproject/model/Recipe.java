@@ -41,7 +41,7 @@ public class Recipe {
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    @JsonIgnoreProperties("recipes")
+    @JsonIgnoreProperties({"recipes"})
     @NotNull(message = "Author cannot be null")
     private User author;
 

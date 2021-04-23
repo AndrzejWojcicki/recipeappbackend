@@ -32,7 +32,7 @@ public class Comment {
     @ManyToOne
     @NotNull(message = "Name cannot be null")
     @JoinColumn(name = "recipe_id", nullable = false)
-    @JsonIgnoreProperties("comments")
+    @JsonIgnoreProperties({"comments"})
     private Recipe recipe;
 
     @ManyToOne

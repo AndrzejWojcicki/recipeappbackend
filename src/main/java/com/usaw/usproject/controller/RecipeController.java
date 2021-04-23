@@ -41,6 +41,30 @@ public class RecipeController {
     }
 
     @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
+    @GetMapping("/recipe/{id}")
+    public Object getRecipe(@Valid @PathVariable("id") Long id) {
+        try {
+            Optional<Recipe> recipe = recipeRepository.findById(id);
+            if(recipe.isPresent()) {
+            Recipe _recipe = new Recipe();
+            _recipe.setId(recipe.get().getId());
+            _recipe.setDateCreated(recipe.get().getDateCreated());
+            _recipe.setDifficulty(recipe.get().getDifficulty());
+            _recipe.setImageUrl(recipe.get().getImageUrl());
+            _recipe.setName(recipe.get().getName());
+            _recipe.setPreparationTime(recipe.get().getPreparationTime());
+            _recipe.setCategory(null);
+            _recipe.setAuthor(null);
+            return new ResponseEntity(_recipe, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        } catch (Exception e) {
+            return (null);
+        }
+    }
+
+    @CrossOrigin(origins = {"https://recipe-app-us.herokuapp.com","http://localhost:4200"})
     @PostMapping("recipes")
     public ResponseEntity<Recipe> createRecipe(@Valid @RequestBody Recipe recipe) {
 

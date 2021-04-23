@@ -55,6 +55,9 @@ public class User {
     @Column(name = "proteins")
     private Long proteins;
 
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     @JsonIgnore
     private Set<Recipe> recipes;
